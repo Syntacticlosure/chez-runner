@@ -16,8 +16,8 @@
         (inherit register-toolbar-button
                  get-button-panel
                  get-definitions-text
-                 get-interactions-text
-                 ensure-rep-shown)
+;                 ensure-rep-shown
+                 get-interactions-text)
         (define run-chez (new switchable-button%
                               [label "Run Chez"]
                               [parent (get-button-panel)]
@@ -34,7 +34,7 @@
                                           (match-define (list stdout stdin pid stderr _)
                                             (process (format "scheme --script ~a" tmpfile)))
                                           (send (get-interactions-text) reset-console)
-                                          (ensure-rep-shown #f)
+;                                          (ensure-rep-shown #f)
                                           (send (get-interactions-text)
                                                 insert
                                                 (format "~a~a\n" (port->string stdout)
